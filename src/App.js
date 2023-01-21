@@ -1,11 +1,10 @@
-import "./App.css";
+import styles from "./App.module.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Joda Movies</h1>
-      </header>
+    <div className={styles.App}>
+      <NavBar />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from "../styles/NavBar.module.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 
 const NavBar = () => {
   const [LoginmodalShow, setLoginModalShow] = React.useState(false);
@@ -27,7 +28,7 @@ const NavBar = () => {
               className="text-light"
               onClick={() => setRegisterModalShow(true)}
             >
-              <i className="fas fa-user-plus me-2"></i>SIGN UP
+              <i className="fas fa-user-plus me-2"></i>REGISTER
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -53,13 +54,22 @@ function LoginModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
+        <Modal.Title>LOGIN</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>Test</p>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="text" placeholder="Enter username" required />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" required />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Log In
+          </Button>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
@@ -77,13 +87,33 @@ function RegisterModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">REGISTER</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>Test 3</p>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="text" placeholder="Enter a username" required />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" required />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" required />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword2">
+            <Form.Label>Input Password again</Form.Label>
+            <Form.Control type="password" placeholder="Password" required />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Register
+          </Button>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

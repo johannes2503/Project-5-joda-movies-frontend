@@ -1,0 +1,26 @@
+
+.Container {
+    margin-top: 70px;
+    max-width: 100%;
+}
+
+.Row {
+    min-height: 100vh;
+}
+
+.Col {
+    
+}
+
+.ColRow {
+    height: 60%;
+    border-right: 1px solid black;
+    background-color: rgb(226, 226, 226); 
+}
+
+.ColRow2 {
+    height: 40%;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    background-color: rgb(142, 139, 139)
+}

@@ -16,3 +16,21 @@
   grid-gap: 20px;
   color: white;
 }
+
+.orange {
+  color: orange;
+}
+
+.purple {
+  color: purple;
+}
+
+.rate-container {
+  border-top: 2px solid purple;
+  margin-top: 20px;
+}
+
+.rate-container .fa-star {
+  font-size: 1.5rem;
+  cursor: pointer;
+}

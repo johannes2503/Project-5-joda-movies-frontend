@@ -6,9 +6,13 @@ function MovieForm(props) {
   const [description, setDescription] = useState(props.movie.description);
 
   const updateClicked = () => {
-    console.log("update here");
     API.updateMovie(props.movie.id, { title, description }).then((resp) =>
       props.updatedMovie(resp)
+    );
+  };
+  const createClicked = () => {
+    API.createMovie({ title, description }).then((resp) =>
+      props.movieCreated(resp)
     );
   };
   return (
@@ -34,7 +38,11 @@ function MovieForm(props) {
             value={description}
             onChange={(evt) => setDescription(evt.target.value)}
           ></textarea>
-          <button onClick={(evt) => updateClicked()}>Update</button>
+          {props.movie.id ? (
+            <button onClick={(evt) => updateClicked()}>Update</button>
+          ) : (
+            <button onClick={(evt) => createClicked()}>Create</button>
+          )}
         </div>
       ) : null}
     </React.Fragment>

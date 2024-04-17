@@ -32,7 +32,22 @@ function App() {
     setSelectedMovie(null);
   };
 
-  const updatedMovie = (movie) => {};
+  const updatedMovie = (movie) => {
+    const newMovies = movies.map((mov) => {
+      if (mov.id === movie.id) {
+        return movie;
+      }
+      return mov;
+    });
+    setMovie(newMovies);
+  };
+  const newMovie = () => {
+    setEditedMovie({ title: "", description: "" });
+  };
+  const movieCreated = (movie) => {
+    const newMovies = [...movies, movie];
+    setMovie(newMovies);
+  };
 
   return (
     <div className="App">
@@ -40,17 +55,22 @@ function App() {
         <h1>Joda Movies</h1>
       </header>
       <div className="layout">
-        <MovieList
-          movies={movies}
-          movieClicked={loadMovie}
-          editClicked={editClicked}
-        />
-        {editedMovie ? <MovieForm movie={editedMovie} /> : null}
-        <MovieDetails
-          movie={selectedMovie}
-          updatedMovie={loadMovie}
-          updateMovie={loadMovie}
-        />
+        <div>
+          <MovieList
+            movies={movies}
+            movieClicked={loadMovie}
+            editClicked={editClicked}
+          />
+          <button onClick={newMovie}>New Movie</button>
+        </div>
+        <MovieDetails movie={selectedMovie} updatedMovie={loadMovie} />
+        {editedMovie ? (
+          <MovieForm
+            movie={editedMovie}
+            updateMovie={updatedMovie}
+            movieCreated={movieCreated}
+          />
+        ) : null}
       </div>
     </div>
   );
